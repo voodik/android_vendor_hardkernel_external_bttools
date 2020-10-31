@@ -1,0 +1,132 @@
+cc_library_static {
+    name: "libbt-csr",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+    ],
+
+    srcs: [
+    "csr.c",
+    "csr_hci.c",
+    "csr_usb.c",
+    "textfile.c",
+    "util.c"
+    ],
+}
+
+cc_library_static {
+    name: "libbt-parser",
+    proprietary: true,
+
+    local_include_dirs: [
+        "include",
+        "include/parser",
+    ],
+
+    srcs: [
+    "parser/parser.c",
+    "parser/lmp.c",
+    "parser/hci.c",
+    "parser/l2cap.c",
+    "parser/amp.c",
+    "parser/smp.c",
+    "parser/att.c",
+    "parser/sdp.c",
+    "parser/rfcomm.c",
+    "parser/bnep.c",
+    "parser/cmtp.c",
+    "parser/hidp.c",
+    "parser/hcrp.c",
+    "parser/avdtp.c",
+    "parser/avctp.c",
+    "parser/avrcp.c",
+    "parser/sap.c",
+    "parser/obex.c",
+    "parser/capi.c",
+    "parser/ppp.c",
+    "parser/tcpip.c",
+    "parser/ericsson.c",
+    "parser/csr.c",
+    "parser/bpa.c",
+    ],
+
+    static_libs: [
+        "libbt-csr",
+    ],
+}
+
+
+// bccmd
+// ========================================================
+cc_binary {
+    name: "bccmd",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+    ],
+    srcs: [
+    "bccmd.c",
+    ],
+
+    static_libs: [
+        "libbt-bluez",
+        "libbt-csr",
+    ],
+}
+
+// hciconfig
+// ========================================================
+cc_binary {
+    name: "hciconfig",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+    ],
+    srcs: [
+    "hciconfig.c",
+    ],
+
+    static_libs: [
+        "libbt-bluez",
+        "libbt-csr",
+    ],
+}
+
+// hcitool
+// ========================================================
+cc_binary {
+    name: "hcitool",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+    ],
+    srcs: [
+    "hcitool.c",
+    "oui.c",
+    ],
+
+    static_libs: [
+        "libbt-bluez",
+        "libbt-csr",
+    ],
+}
+
+// hcidump
+// ========================================================
+cc_binary {
+    name: "hcidump",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+        "include/parser",
+    ],
+    srcs: [
+    "hcidump.c",
+    ],
+
+    static_libs: [
+        "libbt-bluez",
+        "libbt-csr",
+        "libbt-parser",
+    ],
+}

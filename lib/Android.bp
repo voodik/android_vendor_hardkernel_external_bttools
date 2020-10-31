@@ -1,0 +1,11 @@
+// Bluetooth Audio library for target
+// ========================================================
+cc_library_static {
+    name: "libbt-bluez",
+    proprietary: true,
+
+    srcs: [
+        "bluetooth.c",
+        "hci.c",
+    ],
+}
