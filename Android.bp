@@ -130,3 +130,21 @@ cc_binary {
         "libbt-parser",
     ],
 }
+
+// hciattach
+// ========================================================
+cc_binary {
+    name: "hciattach",
+    proprietary: true,
+    local_include_dirs: [
+        "include",
+    ],
+    srcs: [
+    "hciattach.c",
+    ],
+
+    static_libs: [
+        "libbt-bluez",
+    ],
+}
+
